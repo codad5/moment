@@ -79,7 +79,7 @@ function Recipt() {
     }
     
   return (
-      <div class="recipt-body" style={{ backgroundColor:"#131a26",overflowX:"scroll"}}>
+      <div class="recipt-body" style={{ overflowX:"scroll"}}>
           <header style={header}>Recipt Creator</header>
        
           <form onSubmit={saveList} style={{ paddingTop: "170px"}}>
@@ -107,7 +107,7 @@ function Recipt() {
                           <th><input type="number" className="form-control" placeholder="Unit quantity" name="itemquantity" onChange={changePrice} /></th>
                           <th><input type="number" className="form-control" name="itemunitprice" placeholder="price quantity" onChange={changePrice} /></th>
                       <th>{totalPrice[0] * totalPrice[1]}</th>
-                          <th><input type="submit" className="btn btn-primary" value="Save" /></th>
+                          <th><input type="submit" className="btn btn-primary" value="Add" /></th>
               </tr>
                   <tr scope="row">
                   <td></td>
