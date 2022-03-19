@@ -35,7 +35,7 @@ function Recipt() {
 
     const saveList = (event) => {
         event.preventDefault();
-        if (newItemName.length > 0 && list.indexOf()) {
+        if (newItemName.trim().length > 0 && totalPrice[0] > 0) {
 
             
             let listItem = {
@@ -94,12 +94,12 @@ function Recipt() {
                   <tbody>
            
                   {list.map(item => <tr key={item.key} scope="row">
-                  <td>{list.indexOf(item) + 1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.unit}</td>
-                  <td>{item.unitPrice}</td>
-                  <td>{item.total}</td>
-                      <td>{<button value={item.key} type="button" className="btn btn-danger" onClick={deleteItem}>DELETE</button>}</td>
+                                        <td>{list.indexOf(item) + 1}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.unit}</td>
+                                        <td>{item.unitPrice}</td>
+                                        <td>{item.total}</td>
+                                        <td>{<button value={item.key} type="button" className="btn btn-danger" onClick={deleteItem}>DELETE</button>}</td>
               </tr>)}
                   <tr scope="row">
                       <th>{list.length + 1}</th>
