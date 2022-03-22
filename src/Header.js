@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 
 
-function Header() {
+function Header(props) {
   let navigate = useNavigate();
   useEffect(() => {
     if (!sessionStorage.getItem("username")) {
@@ -11,7 +11,9 @@ function Header() {
     }
   });
   return (
-    <div></div>
+    <div>
+
+    </div>
   )
 }
 

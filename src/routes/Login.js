@@ -3,7 +3,7 @@ import './../login.css';
 import axios from 'axios';
 import { PostData } from './../services/PostData';
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-export default function Login(){
+export default  function Login(){
     const [signupdetail, setSignUp] = useState({username:"", password:"", email:""});
     const clearsignupState = { username: "", password: "", email: "" }
     const [signupmessage, setSignUpMessage] = useState({email:"", password:"", username:"", general:""});
@@ -12,9 +12,7 @@ export default function Login(){
     const [loginmessage, setLoginMessage] = useState({ email: "", password: "", username: "", general: "" });
     let navigate = useNavigate();
     useEffect(() => {
-        if (sessionStorage.getItem("username")) {
-            return navigate("/Home");
-        }
+        
     });
     let action_btn = document.querySelectorAll('.action_btn'),
         form_panel = document.querySelectorAll('.login_signup_panel'),
@@ -47,10 +45,11 @@ export default function Login(){
         //     console.log(signupdetail);
         //     // let ResponceJson = document
         // })
+        let newmsg = "";
         axios.post('http://localhost/chat-app/user/api/signup.php',  JSON.stringify(signupdetail))
         .then(res => {
             console.log(res);
-            let newmsg = signupmessage;
+             newmsg = signupmessage;
             newmsg.general = res.data.message;
             setSignUpMessage(newmsg)
             if(!res.data.error){
@@ -66,6 +65,7 @@ export default function Login(){
         .catch((err) => {
             console.log(err);
         })
+        setSignUpMessage(newmsg)
     }
     const handleLogin = () => {
         let newmsg = "" ;
@@ -108,6 +108,9 @@ export default function Login(){
     //         </BrowserRouter>
     //     )
     // }
+    if (sessionStorage.getItem("username")) {
+         navigate("/Home");
+    }
     return (
         <main>
         <section className="login_signup_panel " id="active-panel-login">

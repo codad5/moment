@@ -23,6 +23,7 @@ render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="Home" element={<Home />} />
         <Route path="Recipt" element={<Recipt />} />
         <Route path="Contact" element={<Contact />} />
         <Route path="Login" element={<Login />} />
